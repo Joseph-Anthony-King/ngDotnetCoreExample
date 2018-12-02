@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-    title = 'My Angular Dotnet Core Example App';
+export class HomeComponent {
 
-    constructor() { }
+    private homeTitle: string;
 
-    ngOnInit() {
+    constructor() {
+
+        this.homeTitle = 'My Angular Dotnet Core Example App';
     }
-
 }
