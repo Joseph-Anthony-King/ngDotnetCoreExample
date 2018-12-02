@@ -12,5 +12,5 @@ export class AppComponent {
     constructor() {
 
         this.appTitle = 'My App!';
-     }
+    }
 }
