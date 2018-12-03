@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using ngDotnetCoreExample.Domain;
 using ngDotnetCoreExample.Models.DataModel;
 
-namespace ngDotnetCoreExample.Controllers
-{
+namespace ngDotnetCoreExample.Controllers {
+
     [Route("api/[controller]")]
     [ApiController]
-    public class EventsController : ControllerBase
-    {
+    public class EventsController : ControllerBase {
+
         private readonly ApplicationDbContext _context;
 
         public EventsController(ApplicationDbContext context) {
