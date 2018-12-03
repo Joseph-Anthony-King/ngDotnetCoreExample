@@ -21,9 +21,9 @@ namespace ngDotnetCoreExample.Controllers {
 
         // GET: api/Events
         [HttpGet]
-        public IEnumerable<Event> GetEvents() {
+        public IEnumerable<AppEvent> GetEvents() {
 
-            return _context.Events;
+            return _context.AppEvents;
         }
 
         // GET: api/Events/5
@@ -35,7 +35,7 @@ namespace ngDotnetCoreExample.Controllers {
                 return BadRequest(ModelState);
             }
 
-            var @event = await _context.Events.FindAsync(id);
+            var @event = await _context.AppEvents.FindAsync(id);
 
             if (@event == null) {
 
@@ -47,14 +47,14 @@ namespace ngDotnetCoreExample.Controllers {
 
         // PUT: api/Events/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEvent([FromRoute] int id, [FromBody] Event @event)
+        public async Task<IActionResult> PutEvent([FromRoute] int id, [FromBody] AppEvent @event)
         {
             if (!ModelState.IsValid) {
 
                 return BadRequest(ModelState);
             }
 
-            if (id != @event.Id) {
+            if (id != @event.AppEventId) {
 
                 return BadRequest();
             }
@@ -82,17 +82,17 @@ namespace ngDotnetCoreExample.Controllers {
 
         // POST: api/Events
         [HttpPost]
-        public async Task<IActionResult> PostEvent([FromBody] Event @event) {
+        public async Task<IActionResult> PostEvent([FromBody] AppEvent @event) {
 
             if (!ModelState.IsValid) {
 
                 return BadRequest(ModelState);
             }
 
-            _context.Events.Add(@event);
+            _context.AppEvents.Add(@event);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEvent", new { id = @event.Id }, @event);
+            return CreatedAtAction("GetEvent", new { id = @event.AppEventId }, @event);
         }
 
         // DELETE: api/Events/5
@@ -104,14 +104,14 @@ namespace ngDotnetCoreExample.Controllers {
                 return BadRequest(ModelState);
             }
 
-            var @event = await _context.Events.FindAsync(id);
+            var @event = await _context.AppEvents.FindAsync(id);
 
             if (@event == null) {
 
                 return NotFound();
             }
 
-            _context.Events.Remove(@event);
+            _context.AppEvents.Remove(@event);
             await _context.SaveChangesAsync();
 
             return Ok(@event);
@@ -119,7 +119,7 @@ namespace ngDotnetCoreExample.Controllers {
 
         private bool EventExists(int id) {
 
-            return _context.Events.Any(e => e.Id == id);
+            return _context.AppEvents.Any(e => e.AppEventId == id);
         }
     }
 }

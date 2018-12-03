@@ -10,20 +10,20 @@ using ngDotnetCoreExample.Models.DataModel;
 namespace ngDotnetCoreExample.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181203004543_InitiateDatabase")]
+    [Migration("20181203163052_InitiateDatabase")]
     partial class InitiateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("ngDotnetCoreExample.Domain.Event", b =>
+            modelBuilder.Entity("ngDotnetCoreExample.Domain.AppEvent", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AppEventId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description");
@@ -32,11 +32,12 @@ namespace ngDotnetCoreExample.Migrations
 
                     b.Property<DateTime>("StartDate");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
 
-                    b.HasKey("Id");
+                    b.HasKey("AppEventId");
 
-                    b.ToTable("Events");
+                    b.ToTable("AppEvents");
                 });
 #pragma warning restore 612, 618
         }

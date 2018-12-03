@@ -22,8 +22,6 @@ namespace ngDotnetCoreExample {
             services.AddDbContext<ApplicationDbContext>(options => 
                 options.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
 
-            services.AddTransient<IEventRepository, EventRepository>();
-
             services.AddMvc();
 
             services.AddSpaStaticFiles(configuration => {
@@ -65,7 +63,7 @@ namespace ngDotnetCoreExample {
                 }
             });
 
-            //SeedData.EnsurePopulated(app);
+            SeedData.EnsurePopulated(app);
         }
     }
 }

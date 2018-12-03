@@ -13,7 +13,7 @@ namespace ngDotnetCoreExample.Models.DataModel {
             configuration = iConfigService;
         }
 
-        public DbSet<Event> Events { get; set; }
+        public DbSet<AppEvent> AppEvents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 

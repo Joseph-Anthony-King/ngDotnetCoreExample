@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ngDotnetCoreExample.Domain {
 
-    public class Event {
+    public class AppEvent {
 
         [Key]
-        public int Id { get; set; }
+        public int AppEventId { get; set; }
 
         [Required(ErrorMessage = "Please enter an event title.")]
         public string Title { get; set; }
