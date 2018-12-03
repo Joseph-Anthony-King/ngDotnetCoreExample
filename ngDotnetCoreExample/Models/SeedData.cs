@@ -41,7 +41,6 @@ namespace ngDotnetCoreExample.Models {
 
                     context.SaveChanges();
                 }
-
             }
         }
     }
