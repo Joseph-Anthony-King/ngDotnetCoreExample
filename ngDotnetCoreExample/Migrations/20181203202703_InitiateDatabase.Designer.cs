@@ -10,7 +10,7 @@ using ngDotnetCoreExample.Models.DataModel;
 namespace ngDotnetCoreExample.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181203163052_InitiateDatabase")]
+    [Migration("20181203202703_InitiateDatabase")]
     partial class InitiateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,13 +26,13 @@ namespace ngDotnetCoreExample.Migrations
                     b.Property<int>("AppEventId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description");
+                    b.Property<string>("AppEventDescription");
 
-                    b.Property<DateTime>("EndDate");
+                    b.Property<DateTime>("AppEventEndDate");
 
-                    b.Property<DateTime>("StartDate");
+                    b.Property<DateTime>("AppEventStartDate");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("AppEventTitle")
                         .IsRequired();
 
                     b.HasKey("AppEventId");

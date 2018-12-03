@@ -21,22 +21,22 @@ namespace ngDotnetCoreExample.Models {
 
                     context.AppEvents.AddRange(
                         new AppEvent {
-                            Title = "My First Event",
-                            Description = "My first Event.",
-                            StartDate = DateTime.ParseExact("2018-12-10 20:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null),
-                            EndDate = DateTime.ParseExact("2018-12-10 23:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null)
+                            AppEventTitle = "My First Event",
+                            AppEventDescription = "My first Event.",
+                            AppEventStartDate = DateTime.ParseExact("2018-12-10 20:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null),
+                            AppEventEndDate = DateTime.ParseExact("2018-12-10 23:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null)
                         },
                         new AppEvent {
-                            Title = "My Second Event",
-                            Description = "My Second Event.",
-                            StartDate = DateTime.ParseExact("2018-12-24 11:00:00 AM", "yyyy-MM-dd HH:mm:ss tt", null),
-                            EndDate = DateTime.ParseExact("2018-12-24 13:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null)
+                            AppEventTitle = "My Second Event",
+                            AppEventDescription = "My Second Event.",
+                            AppEventStartDate = DateTime.ParseExact("2018-12-24 11:00:00 AM", "yyyy-MM-dd HH:mm:ss tt", null),
+                            AppEventEndDate = DateTime.ParseExact("2018-12-24 13:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null)
                         },
                         new AppEvent {
-                            Title = "My Third Event",
-                            Description = "My third Event.",
-                            StartDate = DateTime.ParseExact("2018-12-25 17:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null),
-                            EndDate = DateTime.ParseExact("2018-12-25 23:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null)
+                            AppEventTitle = "My Third Event",
+                            AppEventDescription = "My third Event.",
+                            AppEventStartDate = DateTime.ParseExact("2018-12-25 17:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null),
+                            AppEventEndDate = DateTime.ParseExact("2018-12-25 23:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null)
                         });
 
                     context.SaveChanges();

@@ -14,10 +14,10 @@ namespace ngDotnetCoreExample.Migrations
                 {
                     AppEventId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Title = table.Column<string>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    StartDate = table.Column<DateTime>(nullable: false),
-                    EndDate = table.Column<DateTime>(nullable: false)
+                    AppEventTitle = table.Column<string>(nullable: false),
+                    AppEventDescription = table.Column<string>(nullable: true),
+                    AppEventStartDate = table.Column<DateTime>(nullable: false),
+                    AppEventEndDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

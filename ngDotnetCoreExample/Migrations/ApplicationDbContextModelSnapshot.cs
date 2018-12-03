@@ -24,13 +24,13 @@ namespace ngDotnetCoreExample.Migrations
                     b.Property<int>("AppEventId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description");
+                    b.Property<string>("AppEventDescription");
 
-                    b.Property<DateTime>("EndDate");
+                    b.Property<DateTime>("AppEventEndDate");
 
-                    b.Property<DateTime>("StartDate");
+                    b.Property<DateTime>("AppEventStartDate");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("AppEventTitle")
                         .IsRequired();
 
                     b.HasKey("AppEventId");
