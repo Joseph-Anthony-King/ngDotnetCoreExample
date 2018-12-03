@@ -1,43 +1,42 @@
 <div style="text-align:center">
-  <h1>
-      The following events are from the PostgreSQL Database
-  </h1>
+    <h1>
+        The following events are from the PostgreSQL Database
+    </h1>
 
-  <div class="table-responsive">
-      <table class="table"
-             *ngIf="events && events.length">
-          <thead>
-              <tr>
-                  <th>
-                      Event
-                  </th>
-                  <th>
-                      Description
-                  </th>
-                  <th>
-                      Start Date
-                  </th>
-                  <th>
-                      End Date
-                  </th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor="let event of events">
-                  <td>
-                      {{event.appEventTitle}}
-                  </td>
-                  <td>
-                      {{event.appEventDescription}}
-                  </td>
-                  <td>
-                      {{event.appEventStartDate | date: 'short'}}
-                  </td>
-                  <td>
-                      {{event.appEventEndDate | date: 'short'}}
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-  </div>
+    <div class="table-responsive">
+        <table class="table" *ngIf="events && events.length">
+            <thead>
+                <tr>
+                    <th>
+                        Event
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Start Date
+                    </th>
+                    <th>
+                        End Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let event of events">
+                    <td>
+                        {{event.appEventTitle}}
+                    </td>
+                    <td>
+                        {{event.appEventDescription}}
+                    </td>
+                    <td>
+                        {{event.appEventStartDate | date: 'short'}}
+                    </td>
+                    <td>
+                        {{event.appEventEndDate | date: 'short'}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

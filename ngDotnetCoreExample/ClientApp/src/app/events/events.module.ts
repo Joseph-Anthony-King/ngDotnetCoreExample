@@ -5,14 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { EventsListComponent } from './events-list/events-list.component';
 
 const routes: Routes = [
-{ path: "events", component: EventsListComponent }
+    { path: "events", component: EventsListComponent }
 ]
 
 @NgModule({
-declarations: [EventsListComponent],
-imports: [
-CommonModule,
-RouterModule.forChild(routes)
-]
+    declarations: [EventsListComponent],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes)
+    ]
 })
 export class EventsModule { }
