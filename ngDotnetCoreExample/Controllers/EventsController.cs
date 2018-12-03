@@ -16,31 +16,31 @@ namespace ngDotnetCoreExample.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public EventsController(ApplicationDbContext context)
-        {
+        public EventsController(ApplicationDbContext context) {
+
             _context = context;
         }
 
         // GET: api/Events
         [HttpGet]
-        public IEnumerable<Event> GetEvents()
-        {
+        public IEnumerable<Event> GetEvents() {
+
             return _context.Events;
         }
 
         // GET: api/Events/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetEvent([FromRoute] int id)
-        {
-            if (!ModelState.IsValid)
-            {
+        public async Task<IActionResult> GetEvent([FromRoute] int id) {
+
+            if (!ModelState.IsValid) {
+
                 return BadRequest(ModelState);
             }
 
             var @event = await _context.Events.FindAsync(id);
 
-            if (@event == null)
-            {
+            if (@event == null) {
+
                 return NotFound();
             }
 
@@ -51,30 +51,30 @@ namespace ngDotnetCoreExample.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEvent([FromRoute] int id, [FromBody] Event @event)
         {
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) {
+
                 return BadRequest(ModelState);
             }
 
-            if (id != @event.Id)
-            {
+            if (id != @event.Id) {
+
                 return BadRequest();
             }
 
             _context.Entry(@event).State = EntityState.Modified;
 
-            try
-            {
+            try {
+
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EventExists(id))
-                {
+
+            } catch (DbUpdateConcurrencyException) {
+
+                if (!EventExists(id)) {
+
                     return NotFound();
-                }
-                else
-                {
+
+                } else {
+
                     throw;
                 }
             }
@@ -84,10 +84,10 @@ namespace ngDotnetCoreExample.Controllers
 
         // POST: api/Events
         [HttpPost]
-        public async Task<IActionResult> PostEvent([FromBody] Event @event)
-        {
-            if (!ModelState.IsValid)
-            {
+        public async Task<IActionResult> PostEvent([FromBody] Event @event) {
+
+            if (!ModelState.IsValid) {
+
                 return BadRequest(ModelState);
             }
 
@@ -99,16 +99,17 @@ namespace ngDotnetCoreExample.Controllers
 
         // DELETE: api/Events/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEvent([FromRoute] int id)
-        {
-            if (!ModelState.IsValid)
-            {
+        public async Task<IActionResult> DeleteEvent([FromRoute] int id) {
+
+            if (!ModelState.IsValid) {
+
                 return BadRequest(ModelState);
             }
 
             var @event = await _context.Events.FindAsync(id);
-            if (@event == null)
-            {
+
+            if (@event == null) {
+
                 return NotFound();
             }
 
@@ -118,8 +119,8 @@ namespace ngDotnetCoreExample.Controllers
             return Ok(@event);
         }
 
-        private bool EventExists(int id)
-        {
+        private bool EventExists(int id) {
+
             return _context.Events.Any(e => e.Id == id);
         }
     }
