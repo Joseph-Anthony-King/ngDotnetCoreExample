@@ -8,7 +8,7 @@ namespace ngDotnetCoreExample.Models.DataModel {
 
         private IConfiguration configuration;
 
-        public ApplicationDbContext(IConfiguration iConfigService) {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration iConfigService) : base(options) {
 
             configuration = iConfigService;
         }
@@ -19,5 +19,8 @@ namespace ngDotnetCoreExample.Models.DataModel {
 
             optionsBuilder.UseNpgsql(configuration.GetValue<string>("ConnectionStrings:DatabaseConnection"));
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+            => modelBuilder.ForNpgsqlUseIdentityColumns();
     }
 }

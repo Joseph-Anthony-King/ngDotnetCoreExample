@@ -6,15 +6,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ngDotnetCoreExample.Models.DataModel;
+using ngDotnetCoreExample.Models;
 
 namespace ngDotnetCoreExample {
 
     public class Startup {
 
-        public Startup(IConfiguration configuration) {
-
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 
@@ -24,7 +22,9 @@ namespace ngDotnetCoreExample {
             services.AddDbContext<ApplicationDbContext>(options => 
                 options.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddTransient<IEventRepository, EventRepository>();
+
+            services.AddMvc();
 
             services.AddSpaStaticFiles(configuration => {
                 configuration.RootPath = "ClientApp/dist";
@@ -64,6 +64,8 @@ namespace ngDotnetCoreExample {
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
+            //SeedData.EnsurePopulated(app);
         }
     }
 }
