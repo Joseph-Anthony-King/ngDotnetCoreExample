@@ -13,7 +13,7 @@ export class EventsService {
 
     constructor(private http: HttpClient) { }
 
-    getValues(): Observable<IEvent[]> {
+    getEvents(): Observable<IEvent[]> {
         return this.http.get<IEvent[]>(this.eventsUrl).pipe(
             tap(data => console.log('Values from the EventsController: ' + JSON.stringify(data))),
             catchError(this.handleError)
