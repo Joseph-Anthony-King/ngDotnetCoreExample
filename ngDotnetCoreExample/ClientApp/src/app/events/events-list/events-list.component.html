@@ -24,7 +24,9 @@
             <tbody>
                 <tr *ngFor="let event of events">
                     <td>
-                        {{event.appEventTitle}}
+                        <a [routerLink]="['/events', event.appEventId]">
+                            {{event.appEventTitle}}
+                        </a>
                     </td>
                     <td>
                         {{event.appEventDescription}}
