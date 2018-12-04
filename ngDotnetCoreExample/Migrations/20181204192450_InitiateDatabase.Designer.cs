@@ -10,7 +10,7 @@ using ngDotnetCoreExample.Models.DataModel;
 namespace ngDotnetCoreExample.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181203202703_InitiateDatabase")]
+    [Migration("20181204192450_InitiateDatabase")]
     partial class InitiateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -19,10 +19,10 @@ export class EventsDetailComponent implements OnInit {
 
         let id = +this.route.snapshot.paramMap.get('id');
 
-        this.eventsService.getEvent(id).subscribe(
-            event => this.event = event,
-            error => this.errorMessage = <any>error
-        );
+        //this.eventsService.getEvent(id).subscribe(
+        //    event => this.event = event,
+        //    error => this.errorMessage = <any>error
+        //);
     }
 
 }
