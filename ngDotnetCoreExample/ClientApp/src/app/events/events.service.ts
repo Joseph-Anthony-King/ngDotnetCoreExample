@@ -26,6 +26,10 @@ export class EventsService {
         );
     }
 
+    deleteEvent(id: number): Observable<IEvent | undefined>{
+        return this.http.delete<IEvent>(this.eventsUrl + '/' + id);
+    }
+
     private handleError(err: HttpErrorResponse) {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console

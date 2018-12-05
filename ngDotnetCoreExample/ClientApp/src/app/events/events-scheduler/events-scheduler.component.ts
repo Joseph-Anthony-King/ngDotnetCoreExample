@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EventsService } from '../events.service';
 import { IEvent } from '../event';
 
@@ -14,15 +15,26 @@ export class EventsSchedulerComponent implements OnInit {
     private events: IEvent[];
     private errorMessage: string;
 
-    constructor(private eventsService: EventsService) { }
+    constructor(private eventsService: EventsService, private router: Router) { }
 
     ngOnInit() {
 
-        this.title = 'My Schedule';
+        this.title = 'My Schedule!';
 
         this.eventsService.getEvents().subscribe(
             events => {
                 this.events = events;
+            },
+            error => this.errorMessage = <any>error
+        );
+    }
+
+    deleteEvent(eventID: number): void {
+        
+        this.eventsService.deleteEvent(eventID).subscribe(
+            () => {
+                console.log('Deletion successful!'); 
+                location.reload()
             },
             error => this.errorMessage = <any>error
         );
