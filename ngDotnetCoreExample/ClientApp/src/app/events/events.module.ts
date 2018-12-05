@@ -5,16 +5,16 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 import { EventsCalendarComponent } from './events-calendar/events-calendar.component';
-import { EventsDetailComponent } from './events-detail/events-detail.component';
 import { UtilsModule } from '../utils/utils.module';
+import { EventsSchedulerComponent } from './events-scheduler/events-scheduler.component';
 
 const routes: Routes = [
     { path: 'calendar', component: EventsCalendarComponent },
-    { path: 'events/:id', component: EventsDetailComponent }
+    { path: 'schedule', component: EventsSchedulerComponent }
 ]
 
 @NgModule({
-    declarations: [EventsCalendarComponent, EventsDetailComponent],
+    declarations: [EventsCalendarComponent, EventsSchedulerComponent],
     imports: [
         CommonModule,
         UtilsModule,
