@@ -8,7 +8,6 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { ValuesModule } from './values/values.module';
 import { EventsModule } from './events/events.module';
 import { UtilsModule } from './utils/utils.module';
 
@@ -27,7 +26,6 @@ import { UtilsModule } from './utils/utils.module';
         }),
         UtilsModule,
         EventsModule,
-        ValuesModule,
         HomeModule
     ],
     providers: [],
