@@ -4,17 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
-import { EventsListComponent } from './events-list/events-list.component';
+import { EventsCalendarComponent } from './events-calendar/events-calendar.component';
 import { EventsDetailComponent } from './events-detail/events-detail.component';
 import { UtilsModule } from '../utils/utils.module';
 
 const routes: Routes = [
-    { path: 'events', component: EventsListComponent },
+    { path: 'events', component: EventsCalendarComponent },
     { path: 'events/:id', component: EventsDetailComponent }
 ]
 
 @NgModule({
-    declarations: [EventsListComponent, EventsDetailComponent],
+    declarations: [EventsCalendarComponent, EventsDetailComponent],
     imports: [
         CommonModule,
         UtilsModule,

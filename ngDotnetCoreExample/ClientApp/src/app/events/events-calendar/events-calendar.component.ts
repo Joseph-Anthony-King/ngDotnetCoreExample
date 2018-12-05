@@ -2,15 +2,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 import { EventsService } from '../events.service';
 import { IEvent } from '../event';
-import { CalendarEventActionsComponent } from 'angular-calendar/modules/common/calendar-event-actions.component';
 
 @Component({
-    selector: 'app-events-list',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './events-list.component.html',
-    styleUrls: ['./events-list.component.css']
+    templateUrl: './events-calendar.component.html',
+    styleUrls: ['./events-calendar.component.css']
 })
-export class EventsListComponent implements OnInit {
+export class EventsCalendarComponent implements OnInit {
 
     private view: string;
     private viewDate: Date = new Date();
