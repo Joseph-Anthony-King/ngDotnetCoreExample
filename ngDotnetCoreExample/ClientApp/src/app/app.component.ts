@@ -11,6 +11,6 @@ export class AppComponent {
 
     constructor() {
 
-        this.appTitle = 'My App!';
+        this.appTitle = 'My Calendar App!';
     }
 }

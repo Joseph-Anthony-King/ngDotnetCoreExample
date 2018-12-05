@@ -10,6 +10,6 @@ export class HomeComponent {
 
     constructor() {
 
-        this.homeTitle = 'My Angular Dotnet Core Example App';
+        this.homeTitle = 'My Calendar App';
     }
 }

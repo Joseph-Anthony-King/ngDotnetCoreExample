@@ -9,7 +9,7 @@ import { EventsDetailComponent } from './events-detail/events-detail.component';
 import { UtilsModule } from '../utils/utils.module';
 
 const routes: Routes = [
-    { path: 'events', component: EventsCalendarComponent },
+    { path: 'calendar', component: EventsCalendarComponent },
     { path: 'events/:id', component: EventsDetailComponent }
 ]
 
