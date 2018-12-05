@@ -12,11 +12,11 @@ import { CalendarEventActionsComponent } from 'angular-calendar/modules/common/c
 })
 export class EventsListComponent implements OnInit {
 
-    private view: string = 'month';
+    private view: string;
     private viewDate: Date = new Date();
 
     private appEvents: IEvent[];
-    private events: CalendarEvent[];
+    private events: CalendarEvent[] = [];
 
     private errorMessage: string;
 
@@ -24,11 +24,16 @@ export class EventsListComponent implements OnInit {
 
     ngOnInit() {
 
+        this.view = 'day';
+
         this.eventsService.getEvents().subscribe(
             events => {
                 this.appEvents = events;
             },
-            error => this.errorMessage = <any>error
+            error => this.errorMessage = <any>error,
+            // tslint:disable-next-line:max-line-length
+            () => { this.appEvents.map(appEvent => this.events.push({title: appEvent.appEventTitle, start: new Date(appEvent.appEventStartDate), end: new Date(appEvent.appEventEndDate)}));
+                this.view = 'month'; }
         );
     }
 }
