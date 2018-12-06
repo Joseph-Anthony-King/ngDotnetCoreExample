@@ -36,10 +36,10 @@
                         {{event.appEventDescription}}
                     </td>
                     <td>
-                        {{ event.appEventStartDate }}
+                        {{ event.appEventStartDate | UTCStringToDateString }}
                     </td>
                     <td>
-                        {{ event.appEventEndDate }}
+                        {{ event.appEventEndDate | UTCStringToDateString  }}
                     </td>
                     <td>
                         <button class="btn btn-danger"

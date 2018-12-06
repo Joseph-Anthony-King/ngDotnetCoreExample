@@ -11,6 +11,7 @@ import { UtilsModule } from '../utils/utils.module';
 import { EventsSchedulerComponent } from './events-scheduler/events-scheduler.component';
 import { EventsEditComponent } from './events-edit/events-edit.component';
 import { EventsAddComponent } from './events-edit/events-add.component';
+import { SharedModule } from '../shared/shared.module'
 
 const routes: Routes = [
     { path: 'calendar', component: EventsCalendarComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
         FormsModule,
         DlDateTimePickerDateModule,
         UtilsModule,
+        SharedModule,
         CalendarModule.forRoot({
           provide: DateAdapter,
           useFactory: adapterFactory
