@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { IEvent } from '../event';
+import { Event } from '../event';
 import { EventsService } from '../events.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { EventsService } from '../events.service';
 })
 export class EventsEditComponent implements OnInit {
 
-    private event: IEvent | undefined;
+    private event: Event | undefined;
     private startDate: Date;
     private endDate: Date;
     private errorMessage: string;

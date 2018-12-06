@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { IEvent } from './event';
+import { Event } from './event';
 
 @Injectable({
     providedIn: 'root'
@@ -13,24 +13,24 @@ export class EventsService {
 
     constructor(private http: HttpClient) { }
 
-    getEvents(): Observable<IEvent[]> {
-        return this.http.get<IEvent[]>(this.eventsUrl).pipe(
+    getEvents(): Observable<Event[]> {
+        return this.http.get<Event[]>(this.eventsUrl).pipe(
             tap(data => console.log(data)),
             catchError(this.handleError)
         );
     }
 
-    getEvent(id: number): Observable<IEvent | undefined> {
+    getEvent(id: number): Observable<Event | undefined> {
         return this.getEvents().pipe(
-            map((events: IEvent[]) => events.find(ev => ev.appEventId === id))
+            map((events: Event[]) => events.find(ev => ev.appEventId === id))
         );
     }
 
-    deleteEvent(id: number): Observable<IEvent | undefined> {
-        return this.http.delete<IEvent>(this.eventsUrl + '/' + id);
+    deleteEvent(id: number): Observable<Event | undefined> {
+        return this.http.delete<Event>(this.eventsUrl + '/' + id);
     }
 
-    updateEvent(evt: IEvent): Observable<any> {
+    updateEvent(evt: Event): Observable<any> {
         return this.http.put(this.eventsUrl + '/' + evt.appEventId, evt);
     }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventsService } from '../events.service';
-import { IEvent } from '../event';
+import { Event } from '../event';
 
 @Component({
     templateUrl: './events-scheduler.component.html',
@@ -11,7 +11,7 @@ export class EventsSchedulerComponent implements OnInit {
 
     private title: string;
 
-    private events: IEvent[];
+    private events: Event[];
     private errorMessage: string;
 
     constructor(private eventsService: EventsService, private router: Router) { }

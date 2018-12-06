@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 import { EventsService } from '../events.service';
-import { IEvent } from '../event';
+import { Event } from '../event';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class EventsCalendarComponent implements OnInit {
     private view: string;
     private viewDate: Date = new Date();
 
-    private appEvents: IEvent[];
+    private appEvents: Event[];
     private events: CalendarEvent[] = [];
 
     private eventsDownloaded: boolean;

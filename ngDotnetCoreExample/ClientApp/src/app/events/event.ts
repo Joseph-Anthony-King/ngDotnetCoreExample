@@ -1,4 +1,4 @@
-﻿export class IEvent {
+export class Event {
     appEventId: number;
     appEventTitle: string;
     appEventDescription: string;
