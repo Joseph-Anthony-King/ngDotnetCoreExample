@@ -22,8 +22,8 @@ namespace ngDotnetCoreExample.Controllers {
         // GET: api/Events
         [HttpGet]
         public IEnumerable<AppEvent> GetEvents() {
-
-            return _context.AppEvents;
+            
+            return _context.AppEvents.OrderBy(evt => evt.AppEventStartDate);
         }
 
         // GET: api/Events/5

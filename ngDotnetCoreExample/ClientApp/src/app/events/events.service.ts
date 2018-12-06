@@ -9,25 +9,29 @@ import { IEvent } from './event';
 })
 export class EventsService {
 
-    private eventsUrl: string = 'http://localhost:5000/api/events';
+    private eventsUrl = 'http://localhost:5000/api/events';
 
     constructor(private http: HttpClient) { }
 
     getEvents(): Observable<IEvent[]> {
         return this.http.get<IEvent[]>(this.eventsUrl).pipe(
-            tap(data => console.log('Values from the EventsController: ' + JSON.stringify(data))),
+            tap(data => console.log(data)),
             catchError(this.handleError)
         );
     }
 
-    getEvent(id: number): Observable<IEvent | undefined>{
+    getEvent(id: number): Observable<IEvent | undefined> {
         return this.getEvents().pipe(
             map((events: IEvent[]) => events.find(ev => ev.appEventId === id))
         );
     }
 
-    deleteEvent(id: number): Observable<IEvent | undefined>{
+    deleteEvent(id: number): Observable<IEvent | undefined> {
         return this.http.delete<IEvent>(this.eventsUrl + '/' + id);
+    }
+
+    updateEvent(evt: IEvent): Observable<any> {
+        return this.http.put(this.eventsUrl + '/' + evt.appEventId, evt);
     }
 
     private handleError(err: HttpErrorResponse) {

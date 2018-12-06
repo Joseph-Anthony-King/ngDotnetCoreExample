@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ngDotnetCoreExample.Migrations
@@ -16,8 +15,8 @@ namespace ngDotnetCoreExample.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     AppEventTitle = table.Column<string>(nullable: false),
                     AppEventDescription = table.Column<string>(nullable: true),
-                    AppEventStartDate = table.Column<DateTime>(nullable: false),
-                    AppEventEndDate = table.Column<DateTime>(nullable: false)
+                    AppEventStartDate = table.Column<string>(nullable: false),
+                    AppEventEndDate = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

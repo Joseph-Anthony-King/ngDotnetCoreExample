@@ -13,11 +13,10 @@ namespace ngDotnetCoreExample.Domain {
 
         public string AppEventDescription { get; set; }
 
-        [Required]
-        [DataType(DataType.DateTime)]
-        public DateTime AppEventStartDate { get; set; }
+        [Required(ErrorMessage = "Please enter an event start date.")]
+        public string AppEventStartDate { get; set; }
 
-        [DataType(DataType.DateTime)]
-        public DateTime AppEventEndDate { get; set; }
+        [Required(ErrorMessage = "Please enter an event end date.")]
+        public string AppEventEndDate { get; set; }
     }
 }

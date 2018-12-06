@@ -4,7 +4,6 @@ import { EventsService } from '../events.service';
 import { IEvent } from '../event';
 
 @Component({
-    selector: 'app-events-scheduler',
     templateUrl: './events-scheduler.component.html',
     styleUrls: ['./events-scheduler.component.css']
 })
@@ -30,11 +29,11 @@ export class EventsSchedulerComponent implements OnInit {
     }
 
     deleteEvent(eventID: number): void {
-        
+
         this.eventsService.deleteEvent(eventID).subscribe(
             () => {
-                console.log('Deletion successful!'); 
-                location.reload()
+                console.log('Deletion successful!');
+                location.reload();
             },
             error => this.errorMessage = <any>error
         );

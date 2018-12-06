@@ -23,20 +23,20 @@ namespace ngDotnetCoreExample.Models {
                         new AppEvent {
                             AppEventTitle = "My First Event",
                             AppEventDescription = "My first event.",
-                            AppEventStartDate = DateTime.ParseExact("2018-12-10 20:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null),
-                            AppEventEndDate = DateTime.ParseExact("2018-12-10 23:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null)
+                            AppEventStartDate = "2018-12-10T20:00:00.000Z",
+                            AppEventEndDate = "2018-12-10T23:30:00.000Z"
                         },
                         new AppEvent {
                             AppEventTitle = "My Second Event",
                             AppEventDescription = "My second event.",
-                            AppEventStartDate = DateTime.ParseExact("2018-12-24 11:00:00 AM", "yyyy-MM-dd HH:mm:ss tt", null),
-                            AppEventEndDate = DateTime.ParseExact("2018-12-24 13:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null)
+                            AppEventStartDate = "2018-12-24T11:00:00.000Z",
+                            AppEventEndDate = "2018-12-24T15:00:00.000Z"
                         },
                         new AppEvent {
                             AppEventTitle = "My Third Event",
                             AppEventDescription = "My third event.",
-                            AppEventStartDate = DateTime.ParseExact("2018-12-25 17:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null),
-                            AppEventEndDate = DateTime.ParseExact("2018-12-25 23:00:00 PM", "yyyy-MM-dd HH:mm:ss tt", null)
+                            AppEventStartDate = "2018-12-25T17:00:00.000Z",
+                            AppEventEndDate = "2018-12-25T21:00:00.000Z"
                         });
 
                     context.SaveChanges();

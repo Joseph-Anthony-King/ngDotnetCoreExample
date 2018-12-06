@@ -1,7 +1,7 @@
-﻿export interface IEvent {
+﻿export class IEvent {
     appEventId: number;
     appEventTitle: string;
     appEventDescription: string;
-    appEventStartDate: Date;
-    appEventEndDate: Date;
+    appEventStartDate: string;
+    appEventEndDate: string;
 }
