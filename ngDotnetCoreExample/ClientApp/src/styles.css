@@ -7,3 +7,11 @@
 .container{
     max-width: 80%;
 }
+
+.small-column {
+    width: 15;
+}
+
+.wide-column {
+    width: 40%;
+}
