@@ -34,6 +34,10 @@ export class EventsService {
         return this.http.put(this.eventsUrl + '/' + evt.appEventId, evt);
     }
 
+    postEvent(evt: Event): Observable<any> {
+        return this.http.post(this.eventsUrl, evt);
+    }
+
     private handleError(err: HttpErrorResponse) {
         // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console

@@ -38,4 +38,8 @@ export class EventsSchedulerComponent implements OnInit {
             error => this.errorMessage = <any>error
         );
     }
+
+    eventAdd(): void {
+        this.router.navigate(['/event-add']);
+    }
 }

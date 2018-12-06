@@ -8,7 +8,7 @@ import { EventsService } from '../events.service';
     templateUrl: './events-edit.component.html',
     styleUrls: ['./events-edit.component.css']
 })
-export class EventsEditComponent implements OnInit {
+export class EventsAddComponent implements OnInit {
 
     private title: string;
     private event: Event | undefined;
@@ -16,21 +16,15 @@ export class EventsEditComponent implements OnInit {
     private endDate: Date;
     private errorMessage: string;
 
-    constructor(private route: ActivatedRoute, private router: Router, private eventsService: EventsService) { }
+    constructor(private router: Router, private eventsService: EventsService) { }
 
     ngOnInit() {
-
-        const id = +this.route.snapshot.paramMap.get('id');
-
-        this.eventsService.getEvent(id).subscribe(
-            event => {
-                this.event = event;
-                this.startDate = new Date(this.event.appEventStartDate);
-                this.endDate = new Date(this.event.appEventEndDate);
-                this.title = event.appEventTitle;
-            },
-            error => this.errorMessage = <any>error
-        );
+        this.title = 'New Event';
+        this.event = new Event();
+        this.event.appEventTitle = this.title;
+        this.event.appEventDescription = '... ';
+        this.event.appEventStartDate = new Date().toUTCString();
+        this.startDate = new Date(this.event.appEventStartDate);
     }
 
     onBack(): void {
@@ -45,9 +39,9 @@ export class EventsEditComponent implements OnInit {
         this.event.appEventStartDate = sDate;
         this.event.appEventEndDate = eDate;
 
-        this.eventsService.updateEvent(this.event).subscribe(
+        this.eventsService.postEvent(this.event).subscribe(
             () => {
-                console.log(this.event.appEventTitle + ' has been updated.');
+                console.log(this.event.appEventTitle + ' has been added.');
                 this.router.navigate(['/schedule']);
             },
             error => this.errorMessage = <any>error

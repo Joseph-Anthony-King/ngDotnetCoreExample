@@ -10,15 +10,17 @@ import { EventsCalendarComponent } from './events-calendar/events-calendar.compo
 import { UtilsModule } from '../utils/utils.module';
 import { EventsSchedulerComponent } from './events-scheduler/events-scheduler.component';
 import { EventsEditComponent } from './events-edit/events-edit.component';
+import { EventsAddComponent } from './events-edit/events-add.component';
 
 const routes: Routes = [
     { path: 'calendar', component: EventsCalendarComponent },
     { path: 'schedule', component: EventsSchedulerComponent },
-    { path: 'event-edit/:id', component: EventsEditComponent }
-]
+    { path: 'event-edit/:id', component: EventsEditComponent },
+    { path: 'event-add', component: EventsAddComponent }
+];
 
 @NgModule({
-    declarations: [EventsCalendarComponent, EventsSchedulerComponent, EventsEditComponent],
+    declarations: [EventsCalendarComponent, EventsSchedulerComponent, EventsEditComponent, EventsAddComponent],
     imports: [
         CommonModule,
         FormsModule,
