@@ -28,7 +28,7 @@
             <tbody>
                 <tr *ngFor="let event of events">
                     <td>
-                        <a [routerLink]="['/event', event.appEventId]" title="Edit {{event.appEventTitle}}">
+                        <a [routerLink]="['/event-edit', event.appEventId]" title="Edit {{event.appEventTitle}}">
                             {{event.appEventTitle}}
                         </a>
                     </td>
