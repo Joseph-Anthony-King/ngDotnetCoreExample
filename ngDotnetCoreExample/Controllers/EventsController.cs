@@ -21,9 +21,9 @@ namespace ngDotnetCoreExample.Controllers {
 
         // GET: api/Events
         [HttpGet]
-        public IEnumerable<AppEvent> GetEvents() {
+        public IEnumerable<CalendarEvent> GetEvents() {
             
-            return _context.AppEvents.OrderBy(evt => evt.AppEventStartDate);
+            return _context.CalendarEvents.OrderBy(evt => evt.CalendarEventStartDate);
         }
 
         // GET: api/Events/5
@@ -35,7 +35,7 @@ namespace ngDotnetCoreExample.Controllers {
                 return BadRequest(ModelState);
             }
 
-            var @event = await _context.AppEvents.FindAsync(id);
+            var @event = await _context.CalendarEvents.FindAsync(id);
 
             if (@event == null) {
 
@@ -47,14 +47,14 @@ namespace ngDotnetCoreExample.Controllers {
 
         // PUT: api/Events/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEvent([FromRoute] int id, [FromBody] AppEvent @event)
+        public async Task<IActionResult> PutEvent([FromRoute] int id, [FromBody] CalendarEvent @event)
         {
             if (!ModelState.IsValid) {
 
                 return BadRequest(ModelState);
             }
 
-            if (id != @event.AppEventId) {
+            if (id != @event.CalendarEventId) {
 
                 return BadRequest();
             }
@@ -82,17 +82,17 @@ namespace ngDotnetCoreExample.Controllers {
 
         // POST: api/Events
         [HttpPost]
-        public async Task<IActionResult> PostEvent([FromBody] AppEvent @event) {
+        public async Task<IActionResult> PostEvent([FromBody] CalendarEvent @event) {
 
             if (!ModelState.IsValid) {
 
                 return BadRequest(ModelState);
             }
 
-            _context.AppEvents.Add(@event);
+            _context.CalendarEvents.Add(@event);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEvent", new { id = @event.AppEventId }, @event);
+            return CreatedAtAction("GetEvent", new { id = @event.CalendarEventId }, @event);
         }
 
         // DELETE: api/Events/5
@@ -104,14 +104,14 @@ namespace ngDotnetCoreExample.Controllers {
                 return BadRequest(ModelState);
             }
 
-            var @event = await _context.AppEvents.FindAsync(id);
+            var @event = await _context.CalendarEvents.FindAsync(id);
 
             if (@event == null) {
 
                 return NotFound();
             }
 
-            _context.AppEvents.Remove(@event);
+            _context.CalendarEvents.Remove(@event);
             await _context.SaveChangesAsync();
 
             return Ok(@event);
@@ -119,7 +119,7 @@ namespace ngDotnetCoreExample.Controllers {
 
         private bool EventExists(int id) {
 
-            return _context.AppEvents.Any(e => e.AppEventId == id);
+            return _context.CalendarEvents.Any(e => e.CalendarEventId == id);
         }
     }
 }

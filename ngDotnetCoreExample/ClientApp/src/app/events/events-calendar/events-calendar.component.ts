@@ -10,13 +10,13 @@ import { Event } from '../event';
 })
 export class EventsCalendarComponent implements OnInit {
 
-    private view: string;
-    private viewDate: Date = new Date();
+    public view: string;
+    public viewDate: Date = new Date();
 
-    private appEvents: Event[];
-    private events: CalendarEvent[] = [];
+    public appEvents: Event[];
+    public events$: CalendarEvent[] = [];
 
-    private eventsDownloaded: boolean;
+    public eventsDownloaded: boolean;
 
     private errorMessage: string;
 
@@ -34,10 +34,10 @@ export class EventsCalendarComponent implements OnInit {
             error => this.errorMessage = <any>error,
             // tslint:disable-next-line:max-line-length
             () => {
-                this.appEvents.map(appEvent => this.events.push({
-                    title: appEvent.appEventTitle, 
-                    start: new Date(appEvent.appEventStartDate), 
-                    end: new Date(appEvent.appEventEndDate)}));
+                this.appEvents.map(appEvent => this.events$.push({
+                    title: appEvent.calendarEventTitle,
+                    start: new Date(appEvent.calendarEventStartDate),
+                    end: new Date(appEvent.calendarEventEndDate)}));
                 this.eventsDownloaded = true;
             }
         );

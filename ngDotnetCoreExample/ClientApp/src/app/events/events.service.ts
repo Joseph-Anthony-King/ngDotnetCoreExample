@@ -22,7 +22,7 @@ export class EventsService {
 
     getEvent(id: number): Observable<Event | undefined> {
         return this.getEvents().pipe(
-            map((events: Event[]) => events.find(ev => ev.appEventId === id))
+            map((events: Event[]) => events.find(ev => ev.calendarEventId === id))
         );
     }
 
@@ -31,7 +31,7 @@ export class EventsService {
     }
 
     updateEvent(evt: Event): Observable<any> {
-        return this.http.put(this.eventsUrl + '/' + evt.appEventId, evt);
+        return this.http.put(this.eventsUrl + '/' + evt.calendarEventId, evt);
     }
 
     postEvent(evt: Event): Observable<any> {

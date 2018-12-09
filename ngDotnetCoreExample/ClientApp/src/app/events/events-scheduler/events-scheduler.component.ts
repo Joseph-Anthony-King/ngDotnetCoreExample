@@ -9,9 +9,9 @@ import { Event } from '../event';
 })
 export class EventsSchedulerComponent implements OnInit {
 
-    private title: string;
+    public title: string;
 
-    private events: Event[];
+    public events$: Event[];
     private errorMessage: string;
 
     constructor(private eventsService: EventsService, private router: Router) { }
@@ -22,9 +22,10 @@ export class EventsSchedulerComponent implements OnInit {
 
         this.eventsService.getEvents().subscribe(
             events => {
-                this.events = events;
+                this.events$ = events;
             },
-            error => this.errorMessage = <any>error
+            error => this.errorMessage = <any>error,
+            () => console.log(this.events$)
         );
     }
 

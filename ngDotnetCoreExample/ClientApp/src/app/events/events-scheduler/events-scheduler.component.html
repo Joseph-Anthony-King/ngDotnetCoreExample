@@ -5,7 +5,7 @@
         </h1>
     </div>
     <div class="table-responsive">
-        <table class="table table-striped" *ngIf="events && events.length">
+        <table class="table table-striped" *ngIf="events$ && events$.length">
             <thead>
                 <tr>
                     <th class="small-column">
@@ -26,24 +26,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let event of events">
+                <tr *ngFor="let event of events$">
                     <td>
-                        <a [routerLink]="['/event-edit', event.appEventId]" title="Edit {{event.appEventTitle}}">
-                            {{event.appEventTitle}}
+                        <a [routerLink]="['/event-edit', event.calendarEventId]" title="Edit {{event.calendarEventTitle}}">
+                            {{event.calendarEventTitle}}
                         </a>
                     </td>
                     <td>
-                        {{event.appEventDescription}}
+                        {{event.calendarEventDescription}}
                     </td>
                     <td>
-                        {{ event.appEventStartDate | UTCStringToDateString }}
+                        {{ event.calendarEventStartDate | UTCStringToDateString }}
                     </td>
                     <td>
-                        {{ event.appEventEndDate | UTCStringToDateString  }}
+                        {{ event.calendarEventEndDate | UTCStringToDateString  }}
                     </td>
                     <td>
                         <button class="btn btn-danger"
-                            (click)="deleteEvent(event.appEventId)">
+                            (click)="deleteEvent(event.calendarEventId)">
                             Delete
                         </button>
                     </td>

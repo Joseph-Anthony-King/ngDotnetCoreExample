@@ -1,7 +1,7 @@
 export class Event {
-    appEventId: number;
-    appEventTitle: string;
-    appEventDescription: string;
-    appEventStartDate: string;
-    appEventEndDate: string;
+    calendarEventId: number;
+    calendarEventTitle: string;
+    calendarEventDescription: string;
+    calendarEventStartDate: string;
+    calendarEventEndDate: string;
 }

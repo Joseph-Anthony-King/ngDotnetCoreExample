@@ -10,10 +10,10 @@ import { EventsService } from '../events.service';
 })
 export class EventsEditComponent implements OnInit {
 
-    private title: string;
-    private event: Event | undefined;
-    private startDate: Date;
-    private endDate: Date;
+    public title: string;
+    public event: Event | undefined;
+    public startDate: Date;
+    public endDate: Date;
     private errorMessage: string;
 
     constructor(private route: ActivatedRoute, private router: Router, private eventsService: EventsService) { }
@@ -25,9 +25,9 @@ export class EventsEditComponent implements OnInit {
         this.eventsService.getEvent(id).subscribe(
             event => {
                 this.event = event;
-                this.startDate = new Date(this.event.appEventStartDate);
-                this.endDate = new Date(this.event.appEventEndDate);
-                this.title = event.appEventTitle;
+                this.startDate = new Date(this.event.CalendarEventStartDate);
+                this.endDate = new Date(this.event.CalendarEventEndDate);
+                this.title = event.CalendarEventTitle;
             },
             error => this.errorMessage = <any>error
         );
@@ -42,12 +42,12 @@ export class EventsEditComponent implements OnInit {
         const sDate = this.startDate.toISOString();
         const eDate = this.endDate.toISOString();
 
-        this.event.appEventStartDate = sDate;
-        this.event.appEventEndDate = eDate;
+        this.event.CalendarEventStartDate = sDate;
+        this.event.CalendarEventEndDate = eDate;
 
         this.eventsService.updateEvent(this.event).subscribe(
             () => {
-                console.log(this.event.appEventTitle + ' has been updated.');
+                console.log(this.event.CalendarEventTitle + ' has been updated.');
                 this.router.navigate(['/schedule']);
             },
             error => this.errorMessage = <any>error

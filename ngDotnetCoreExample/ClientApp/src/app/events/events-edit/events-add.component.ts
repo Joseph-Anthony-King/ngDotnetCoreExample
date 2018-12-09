@@ -10,10 +10,10 @@ import { EventsService } from '../events.service';
 })
 export class EventsAddComponent implements OnInit {
 
-    private title: string;
-    private event: Event | undefined;
-    private startDate: Date;
-    private endDate: Date;
+    public title: string;
+    public event: Event | undefined;
+    public startDate: Date;
+    public endDate: Date;
     private errorMessage: string;
 
     constructor(private router: Router, private eventsService: EventsService) { }
@@ -21,10 +21,10 @@ export class EventsAddComponent implements OnInit {
     ngOnInit() {
         this.title = 'New Event';
         this.event = new Event();
-        this.event.appEventTitle = this.title;
-        this.event.appEventDescription = '... ';
-        this.event.appEventStartDate = new Date().toUTCString();
-        this.startDate = new Date(this.event.appEventStartDate);
+        this.event.CalendarEventTitle = this.title;
+        this.event.CalendarEventDescription = '... ';
+        this.event.CalendarEventStartDate = new Date().toUTCString();
+        this.startDate = new Date(this.event.CalendarEventStartDate);
     }
 
     onBack(): void {
@@ -36,12 +36,12 @@ export class EventsAddComponent implements OnInit {
         const sDate = this.startDate.toISOString();
         const eDate = this.endDate.toISOString();
 
-        this.event.appEventStartDate = sDate;
-        this.event.appEventEndDate = eDate;
+        this.event.CalendarEventStartDate = sDate;
+        this.event.CalendarEventEndDate = eDate;
 
         this.eventsService.postEvent(this.event).subscribe(
             () => {
-                console.log(this.event.appEventTitle + ' has been added.');
+                console.log(this.event.CalendarEventTitle + ' has been added.');
                 this.router.navigate(['/schedule']);
             },
             error => this.errorMessage = <any>error
