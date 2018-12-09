@@ -25,9 +25,9 @@ export class EventsEditComponent implements OnInit {
         this.eventsService.getEvent(id).subscribe(
             event => {
                 this.event = event;
-                this.startDate = new Date(this.event.CalendarEventStartDate);
-                this.endDate = new Date(this.event.CalendarEventEndDate);
-                this.title = event.CalendarEventTitle;
+                this.startDate = new Date(this.event.calendarEventStartDate);
+                this.endDate = new Date(this.event.calendarEventEndDate);
+                this.title = event.calendarEventTitle;
             },
             error => this.errorMessage = <any>error
         );
@@ -42,12 +42,12 @@ export class EventsEditComponent implements OnInit {
         const sDate = this.startDate.toISOString();
         const eDate = this.endDate.toISOString();
 
-        this.event.CalendarEventStartDate = sDate;
-        this.event.CalendarEventEndDate = eDate;
+        this.event.calendarEventStartDate = sDate;
+        this.event.calendarEventEndDate = eDate;
 
         this.eventsService.updateEvent(this.event).subscribe(
             () => {
-                console.log(this.event.CalendarEventTitle + ' has been updated.');
+                console.log(this.event.calendarEventTitle + ' has been updated.');
                 this.router.navigate(['/schedule']);
             },
             error => this.errorMessage = <any>error

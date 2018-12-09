@@ -21,10 +21,10 @@ export class EventsAddComponent implements OnInit {
     ngOnInit() {
         this.title = 'New Event';
         this.event = new Event();
-        this.event.CalendarEventTitle = this.title;
-        this.event.CalendarEventDescription = '... ';
-        this.event.CalendarEventStartDate = new Date().toUTCString();
-        this.startDate = new Date(this.event.CalendarEventStartDate);
+        this.event.calendarEventTitle = this.title;
+        this.event.calendarEventDescription = '... ';
+        this.event.calendarEventStartDate = new Date().toUTCString();
+        this.startDate = new Date(this.event.calendarEventStartDate);
     }
 
     onBack(): void {
@@ -36,12 +36,12 @@ export class EventsAddComponent implements OnInit {
         const sDate = this.startDate.toISOString();
         const eDate = this.endDate.toISOString();
 
-        this.event.CalendarEventStartDate = sDate;
-        this.event.CalendarEventEndDate = eDate;
+        this.event.calendarEventStartDate = sDate;
+        this.event.calendarEventEndDate = eDate;
 
         this.eventsService.postEvent(this.event).subscribe(
             () => {
-                console.log(this.event.CalendarEventTitle + ' has been added.');
+                console.log(this.event.calendarEventTitle + ' has been added.');
                 this.router.navigate(['/schedule']);
             },
             error => this.errorMessage = <any>error
