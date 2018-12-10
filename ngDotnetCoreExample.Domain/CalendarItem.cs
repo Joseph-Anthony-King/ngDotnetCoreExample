@@ -3,20 +3,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ngDotnetCoreExample.Domain {
 
-    public class CalendarEvent {
+    public class CalendarItem {
 
         [Key]
-        public int CalendarEventId { get; set; }
+        public int CalendarItemId { get; set; }
 
         [Required(ErrorMessage = "Please enter an event title.")]
-        public string CalendarEventTitle { get; set; }
+        public string CalendarItemTitle { get; set; }
 
-        public string CalendarEventDescription { get; set; }
+        public string CalendarItemDescription { get; set; }
 
         [Required(ErrorMessage = "Please enter an event start date.")]
-        public string CalendarEventStartDate { get; set; }
+        public string CalendarItemStartDate { get; set; }
 
         [Required(ErrorMessage = "Please enter an event end date.")]
-        public string CalendarEventEndDate { get; set; }
+        public string CalendarItemEndDate { get; set; }
     }
 }

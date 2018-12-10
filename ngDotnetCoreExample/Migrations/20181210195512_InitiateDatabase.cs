@@ -8,26 +8,26 @@ namespace ngDotnetCoreExample.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CalendarEvents",
+                name: "CalendarItems",
                 columns: table => new
                 {
-                    CalendarEventId = table.Column<int>(nullable: false)
+                    CalendarItemId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CalendarEventTitle = table.Column<string>(nullable: false),
-                    CalendarEventDescription = table.Column<string>(nullable: true),
-                    CalendarEventStartDate = table.Column<string>(nullable: false),
-                    CalendarEventEndDate = table.Column<string>(nullable: false)
+                    CalendarItemTitle = table.Column<string>(nullable: false),
+                    CalendarItemDescription = table.Column<string>(nullable: true),
+                    CalendarItemStartDate = table.Column<string>(nullable: false),
+                    CalendarItemEndDate = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CalendarEvents", x => x.CalendarEventId);
+                    table.PrimaryKey("PK_CalendarItems", x => x.CalendarItemId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CalendarEvents");
+                name: "CalendarItems");
         }
     }
 }

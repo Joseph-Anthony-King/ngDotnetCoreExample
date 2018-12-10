@@ -2,40 +2,40 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Event } from './event';
+import { CalendarItem } from './CalendarItem';
 
 @Injectable({
     providedIn: 'root'
 })
 export class EventsService {
 
-    private eventsUrl = 'http://localhost:5000/api/events';
+    private CalendarItemsUrl = 'http://localhost:5000/api/events';
 
     constructor(private http: HttpClient) { }
 
-    getEvents(): Observable<Event[]> {
-        return this.http.get<Event[]>(this.eventsUrl).pipe(
+    getEvents(): Observable<CalendarItem[]> {
+        return this.http.get<CalendarItem[]>(this.CalendarItemsUrl).pipe(
             tap(data => console.log(data)),
             catchError(this.handleError)
         );
     }
 
-    getEvent(id: number): Observable<Event | undefined> {
+    getEvent(id: number): Observable<CalendarItem | undefined> {
         return this.getEvents().pipe(
-            map((events: Event[]) => events.find(ev => ev.calendarEventId === id))
+            map((CalendarItems: CalendarItem[]) => CalendarItems.find(ev => ev.calendarItemId === id))
         );
     }
 
-    deleteEvent(id: number): Observable<Event | undefined> {
-        return this.http.delete<Event>(this.eventsUrl + '/' + id);
+    deleteEvent(id: number): Observable<CalendarItem | undefined> {
+        return this.http.delete<CalendarItem>(this.CalendarItemsUrl + '/' + id);
     }
 
-    updateEvent(evt: Event): Observable<any> {
-        return this.http.put(this.eventsUrl + '/' + evt.calendarEventId, evt);
+    updateEvent(evt: CalendarItem): Observable<any> {
+        return this.http.put(this.CalendarItemsUrl + '/' + evt.calendarItemId, evt);
     }
 
-    postEvent(evt: Event): Observable<any> {
-        return this.http.post(this.eventsUrl, evt);
+    postEvent(evt: CalendarItem): Observable<any> {
+        return this.http.post(this.CalendarItemsUrl, evt);
     }
 
     private handleError(err: HttpErrorResponse) {

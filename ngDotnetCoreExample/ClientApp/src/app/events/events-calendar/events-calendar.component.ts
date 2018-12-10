@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 import { EventsService } from '../events.service';
-import { Event } from '../event';
+import { CalendarItem } from '../CalendarItem';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -13,7 +13,7 @@ export class EventsCalendarComponent implements OnInit {
     public view: string;
     public viewDate: Date = new Date();
 
-    public appEvents: Event[];
+    public appEvents: CalendarItem[];
     public events$: CalendarEvent[] = [];
 
     public eventsDownloaded: boolean;
@@ -35,9 +35,9 @@ export class EventsCalendarComponent implements OnInit {
             // tslint:disable-next-line:max-line-length
             () => {
                 this.appEvents.map(appEvent => this.events$.push({
-                    title: appEvent.calendarEventTitle,
-                    start: new Date(appEvent.calendarEventStartDate),
-                    end: new Date(appEvent.calendarEventEndDate)}));
+                    title: appEvent.calendarItemTitle,
+                    start: new Date(appEvent.calendarItemStartDate),
+                    end: new Date(appEvent.calendarItemEndDate)}));
                 this.eventsDownloaded = true;
             }
         );

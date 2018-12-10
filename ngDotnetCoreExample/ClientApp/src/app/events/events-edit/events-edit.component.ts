@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Event } from '../event';
+import { CalendarItem } from '../CalendarItem';
 import { EventsService } from '../events.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { EventsService } from '../events.service';
 export class EventsEditComponent implements OnInit {
 
     public title: string;
-    public event: Event | undefined;
+    public event: CalendarItem | undefined;
     public startDate: Date;
     public endDate: Date;
     private errorMessage: string;
@@ -25,9 +25,9 @@ export class EventsEditComponent implements OnInit {
         this.eventsService.getEvent(id).subscribe(
             event => {
                 this.event = event;
-                this.startDate = new Date(this.event.calendarEventStartDate);
-                this.endDate = new Date(this.event.calendarEventEndDate);
-                this.title = event.calendarEventTitle;
+                this.startDate = new Date(this.event.calendarItemStartDate);
+                this.endDate = new Date(this.event.calendarItemEndDate);
+                this.title = event.calendarItemTitle;
             },
             error => this.errorMessage = <any>error
         );
@@ -42,12 +42,12 @@ export class EventsEditComponent implements OnInit {
         const sDate = this.startDate.toISOString();
         const eDate = this.endDate.toISOString();
 
-        this.event.calendarEventStartDate = sDate;
-        this.event.calendarEventEndDate = eDate;
+        this.event.calendarItemStartDate = sDate;
+        this.event.calendarItemEndDate = eDate;
 
         this.eventsService.updateEvent(this.event).subscribe(
             () => {
-                console.log(this.event.calendarEventTitle + ' has been updated.');
+                console.log(this.event.calendarItemTitle + ' has been updated.');
                 this.router.navigate(['/schedule']);
             },
             error => this.errorMessage = <any>error

@@ -17,26 +17,26 @@ namespace ngDotnetCoreExample.Models {
                 ApplicationDbContext context = servicesScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 context.Database.Migrate();
 
-                if (!context.CalendarEvents.Any()) {
+                if (!context.CalendarItems.Any()) {
 
-                    context.CalendarEvents.AddRange(
-                        new CalendarEvent {
-                            CalendarEventTitle = "My First Event",
-                            CalendarEventDescription = "My first event.",
-                            CalendarEventStartDate = "2018-12-10T20:00:00.000Z",
-                            CalendarEventEndDate = "2018-12-10T23:30:00.000Z"
+                    context.CalendarItems.AddRange(
+                        new CalendarItem {
+                            CalendarItemTitle = "My First Event",
+                            CalendarItemDescription = "My first event.",
+                            CalendarItemStartDate = "2018-12-10T20:00:00.000Z",
+                            CalendarItemEndDate = "2018-12-10T23:30:00.000Z"
                         },
-                        new CalendarEvent {
-                            CalendarEventTitle = "My Second Event",
-                            CalendarEventDescription = "My second event.",
-                            CalendarEventStartDate = "2018-12-24T11:00:00.000Z",
-                            CalendarEventEndDate = "2018-12-24T15:00:00.000Z"
+                        new CalendarItem {
+                            CalendarItemTitle = "My Second Event",
+                            CalendarItemDescription = "My second event.",
+                            CalendarItemStartDate = "2018-12-24T11:00:00.000Z",
+                            CalendarItemEndDate = "2018-12-24T15:00:00.000Z"
                         },
-                        new CalendarEvent {
-                            CalendarEventTitle = "My Third Event",
-                            CalendarEventDescription = "My third event.",
-                            CalendarEventStartDate = "2018-12-25T17:00:00.000Z",
-                            CalendarEventEndDate = "2018-12-25T21:00:00.000Z"
+                        new CalendarItem {
+                            CalendarItemTitle = "My Third Event",
+                            CalendarItemDescription = "My third event.",
+                            CalendarItemStartDate = "2018-12-25T17:00:00.000Z",
+                            CalendarItemEndDate = "2018-12-25T21:00:00.000Z"
                         });
 
                     context.SaveChanges();

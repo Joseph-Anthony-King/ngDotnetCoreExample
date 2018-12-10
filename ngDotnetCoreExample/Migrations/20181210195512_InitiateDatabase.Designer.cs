@@ -9,7 +9,7 @@ using ngDotnetCoreExample.Models.DataModel;
 namespace ngDotnetCoreExample.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181209043747_InitiateDatabase")]
+    [Migration("20181210195512_InitiateDatabase")]
     partial class InitiateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,25 +20,25 @@ namespace ngDotnetCoreExample.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("ngDotnetCoreExample.Domain.CalendarEvent", b =>
+            modelBuilder.Entity("ngDotnetCoreExample.Domain.CalendarItem", b =>
                 {
-                    b.Property<int>("CalendarEventId")
+                    b.Property<int>("CalendarItemId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("CalendarEventDescription");
+                    b.Property<string>("CalendarItemDescription");
 
-                    b.Property<string>("CalendarEventEndDate")
+                    b.Property<string>("CalendarItemEndDate")
                         .IsRequired();
 
-                    b.Property<string>("CalendarEventStartDate")
+                    b.Property<string>("CalendarItemStartDate")
                         .IsRequired();
 
-                    b.Property<string>("CalendarEventTitle")
+                    b.Property<string>("CalendarItemTitle")
                         .IsRequired();
 
-                    b.HasKey("CalendarEventId");
+                    b.HasKey("CalendarItemId");
 
-                    b.ToTable("CalendarEvents");
+                    b.ToTable("CalendarItems");
                 });
 #pragma warning restore 612, 618
         }

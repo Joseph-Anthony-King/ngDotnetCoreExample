@@ -28,22 +28,22 @@
             <tbody>
                 <tr *ngFor="let event of events$">
                     <td>
-                        <a [routerLink]="['/event-edit', event.calendarEventId]" title="Edit {{event.calendarEventTitle}}">
-                            {{event.calendarEventTitle}}
+                        <a [routerLink]="['/event-edit', event.calendarItemId]" title="Edit {{event.calendarItemTitle}}">
+                            {{event.calendarItemTitle}}
                         </a>
                     </td>
                     <td>
-                        {{event.calendarEventDescription}}
+                        {{event.calendarItemDescription}}
                     </td>
                     <td>
-                        {{ event.calendarEventStartDate | UTCStringToDateString }}
+                        {{ event.calendarItemStartDate | UTCStringToDateString }}
                     </td>
                     <td>
-                        {{ event.calendarEventEndDate | UTCStringToDateString  }}
+                        {{ event.calendarItemEndDate | UTCStringToDateString  }}
                     </td>
                     <td>
                         <button class="btn btn-danger"
-                            (click)="deleteEvent(event.calendarEventId)">
+                            (click)="deleteEvent(event.calendarItemId)">
                             Delete
                         </button>
                     </td>
