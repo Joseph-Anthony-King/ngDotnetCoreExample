@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UTCStringToDateStringPipe } from './utcstring-to-short-date.pipe'
+import { UTCStringToDateStringPipe } from './utcstring-to-short-date.pipe';
 
 @NgModule({
   declarations: [ UTCStringToDateStringPipe ],

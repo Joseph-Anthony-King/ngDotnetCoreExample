@@ -23,20 +23,20 @@ namespace ngDotnetCoreExample.Models {
                         new CalendarItem {
                             CalendarItemTitle = "My First Event",
                             CalendarItemDescription = "My first event.",
-                            CalendarItemStartDate = "2018-12-10T20:00:00.000-0800",
-                            CalendarItemEndDate = "2018-12-10T23:30:00.000-0800"
+                            CalendarItemStartDate = "2018-12-11T04:00:00.000Z",
+                            CalendarItemEndDate = "2018-12-11T07:30:00.000Z"
                         },
                         new CalendarItem {
                             CalendarItemTitle = "My Second Event",
                             CalendarItemDescription = "My second event.",
-                            CalendarItemStartDate = "2018-12-24T11:00:00.000-0800",
-                            CalendarItemEndDate = "2018-12-24T15:00:00.000-0800"
+                            CalendarItemStartDate = "2018-12-25T02:00:00.000Z",
+                            CalendarItemEndDate = "2018-12-25T07:30:00.000Z"
                         },
                         new CalendarItem {
                             CalendarItemTitle = "My Third Event",
                             CalendarItemDescription = "My third event.",
-                            CalendarItemStartDate = "2018-12-25T17:00:00.000-0800",
-                            CalendarItemEndDate = "2018-12-25T21:00:00.000-0800"
+                            CalendarItemStartDate = "2018-12-25T16:00:00.000Z",
+                            CalendarItemEndDate = "2018-12-25T22:00:00.000Z"
                         });
 
                     context.SaveChanges();
