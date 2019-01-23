@@ -47,6 +47,12 @@ namespace ngDotnetCoreExample {
             }
 
             app.UseHttpsRedirection();
+
+            // Initialize and set the path for the welcome page saved in wwwroot
+            DefaultFilesOptions defaultFile = new DefaultFilesOptions();
+            defaultFile.DefaultFileNames.Clear();
+            defaultFile.DefaultFileNames.Add("index.html");
+
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
